@@ -15,6 +15,7 @@ const Container = styled.header`
 const Logo = styled.h3`
   font-weight: bold;
   font-size: 26px;
+  cursor: pointer;
 `;
 
 const Button = styled.button`
@@ -22,9 +23,11 @@ const Button = styled.button`
 `;
 
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <Logo>팩트한접시</Logo>
+      <Logo onClick={() => navigate("/")}>팩트한접시</Logo>
       <Button onClick={() => window.location.assign("https://google.com")}>
         EDAMAN으로 이동
       </Button>

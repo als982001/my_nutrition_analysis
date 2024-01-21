@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
 import useSearch from "../Hooks/useSearch";
 import { BasicButton } from "../Utils/Styles";
 
@@ -44,11 +43,11 @@ const Button = styled.button`
 `;
 
 export default function Main() {
-  const { handleSubmit, handleSearch, register } = useSearch();
+  const { handleSubmit, goToResult, register } = useSearch();
 
   return (
     <Wrapper>
-      <Container onSubmit={handleSubmit(handleSearch)}>
+      <Container onSubmit={handleSubmit(goToResult)}>
         <Title>알고 싶은 거 입력</Title>
         <Textarea
           {...register("sentence", { required: true, minLength: 1 })}

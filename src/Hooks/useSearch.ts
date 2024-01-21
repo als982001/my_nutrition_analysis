@@ -17,8 +17,12 @@ export default function useSearch() {
     mode: "onChange",
   });
 
-  const handleSearch = async (values: FormValues) => {
-    const sentences = values.sentence.split(",");
+  const goToResult = (values: FormValues) => {
+    navigate(`/result?ingr=${values.sentence}`);
+  };
+
+  const handleSearch = async (ingr: string) => {
+    const sentences = ingr.split(",");
 
     const searchData: ISearchResult | null = await getNutrition(sentences);
 
@@ -26,7 +30,9 @@ export default function useSearch() {
       alert("에러!");
       return;
     }
+
+    return searchData;
   };
 
-  return { handleSubmit, control, handleSearch, register };
+  return { handleSubmit, control, handleSearch, goToResult, register };
 }
