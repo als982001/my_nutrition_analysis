@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import useSearch from "../Hooks/useSearch";
 
 const Wrapper = styled.main`
   width: 100%;
@@ -45,15 +44,26 @@ const Button = styled.button`
   border-radius: 10px;
 `;
 
+interface IForm {
+  sentences: string;
+}
+
 export default function Main() {
-  const { handleSubmit, handleSearch, register } = useSearch();
+  // react-hook-form을 같은 파일에 적용할 경우
+
+  const { handleSubmit, register } = useForm<IForm>();
+
+  const startCheck = (values: IForm) => {
+    const { sentences } = values;
+    console.log(sentences);
+  };
 
   return (
     <Wrapper>
-      <Container onSubmit={handleSubmit(handleSearch)}>
+      <Container onSubmit={handleSubmit(startCheck)}>
         <Title>알고 싶은 거 입력</Title>
         <Textarea
-          {...register("sentence", { required: true, minLength: 1 })}
+          {...register("sentences", { required: true, minLength: 1 })}
           placeholder="알고 싶은 것을 입력하세요."
         />
         <Button>입력</Button>
