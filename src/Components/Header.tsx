@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { BasicButton } from "../Utils/Styles";
 
 const Container = styled.header`
   width: 100%;
@@ -17,15 +18,10 @@ const Logo = styled.h3`
 `;
 
 const Button = styled.button`
-  width: 150px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
+  ${BasicButton}
 `;
 
 export default function Header() {
-  const navigate = useNavigate();
-
   return (
     <Container>
       <Logo>팩트한접시</Logo>

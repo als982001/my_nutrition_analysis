@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import useSearch from "../Hooks/useSearch";
+import { BasicButton } from "../Utils/Styles";
 
 const Wrapper = styled.main`
   width: 100%;
@@ -39,10 +40,7 @@ const Textarea = styled.textarea`
 `;
 
 const Button = styled.button`
-  width: 150px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
+  ${BasicButton}
 `;
 
 export default function Main() {
