@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import Main from "./Pages/Main";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Result from "./Pages/Result";
+import NotFound from "./Pages/NotFound";
 
 const Wrapper = styled.section`
   width: 100vw;
@@ -19,7 +21,9 @@ function App() {
     <Wrapper>
       <Header />
       <Routes>
+        <Route path="/result" element={<Result />} />
         <Route path="/" element={<Main />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Wrapper>
