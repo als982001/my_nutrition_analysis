@@ -11,12 +11,17 @@ export interface ISearchResult {
   dietLabels: string[];
   healthLabels: string[];
   ingredients: {
+    text: string;
     parsed: {
+      quantity: number;
+      weight: number;
+      retainedWeight: number;
       food: string;
       foodId: string;
       foodMatch: string;
       measure: string;
       measureURI: string;
+      status: string;
       nutrients: {
         [key: string]: INutrient;
       };
